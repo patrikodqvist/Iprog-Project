@@ -15,3 +15,5 @@ To run the app locally:
 3. Type: http-server -o to open the server locally on your computer.
 4. Type: http://127.0.0.1:8080/#!/home in your browser url.
 5. You should now be seeing the first login-page for the app.
+
+GithubPage-link: https://patrikodqvist.github.io/Iprog-Project/#!/home
