@@ -1,0 +1,356 @@
+/*App font-family*/
+* {
+	font-family: futura;
+	color:white;
+}
+/*All a tags shall be white*/
+a {color: white;
+	}
+
+/*html*/
+html,body {
+	height: 100%;
+	width: 100%;
+}
+
+input {
+	color:black;
+}
+
+/* For interactive buttons in App */
+#sortLink {
+	color: white;
+}
+
+#sortLink:hover {
+	color: rgba(255,255,255,0.15);
+	text-decoration: none;
+}
+
+/*Search widget*/
+#formIcon {
+	color: grey;
+}
+
+.collapsable {
+display: inline-block;
+overflow: hidden;
+height: 0;
+transition: height 1s;
+-webkit-transition: height 1s;        
+-moz-transition: height 1s;        
+-o-transition: height 1s;         
+}
+
+.collapsable.showMe {
+height: 100px;
+}
+
+#collapsable {
+display: inline-block;
+overflow: hidden;
+height: 0%;
+transition: height 1s;
+-webkit-transition: height 1s;        
+-moz-transition: height 1s;        
+-o-transition: height 1s;         
+}
+
+#collapsable.showMe {
+height: 100%;
+}
+
+/*Bakground*/
+#body {
+	height: 100%;
+	background: red;
+	background: -webkit-linear-gradient(left, #d48cf8 , #0e8044);
+	background: -o-linear-gradient(right, #d48cf8, #0e8044);
+	background: -moz-linear-gradient(right, #d48cf8, #0e8044);
+	background: linear-gradient(to right, #d48cf8 , #0e8044);
+}
+
+#body2 {
+	background: red;
+	background: -webkit-linear-gradient(left, #d48cf8 , #0e8044);
+	background: -o-linear-gradient(right, #d48cf8, #0e8044);
+	background: -moz-linear-gradient(right, #d48cf8, #0e8044);
+	background: linear-gradient(to right, #d48cf8 , #0e8044);
+	/*height: 100%;*/
+    min-height: 100%;
+    width: 100%;
+}
+
+
+
+/*All rows*/
+.row {
+	margin: 0em;
+	padding: 0em;
+}
+
+#playlistname {
+	text-align: center;
+}
+
+#playlistname2 {
+	text-align: center;
+	padding-top: 1em;
+}
+
+/* home.html */
+#transparentButton {
+	background: rgba(255, 255, 255, 0.3);
+	color:white;
+}
+
+#padding {
+	padding-left: 4em;
+}
+
+#padding2 {
+	padding-left: 4em;
+	padding-right: 4em;
+}
+
+#header {
+	text-align: center;
+	background-color: rgba(14,128,68,0.15);
+	color: white;
+	width: 100%;
+	padding: 0;
+}
+
+#header2 {
+	background-color: rgba(14,128,68,0.3);
+	color: white;
+	padding-left: 1em;
+}
+
+#header3 {
+	background-color: rgba(14,128,68,0.5);
+	color: white;
+	padding-left: 4em;
+}
+
+#box {
+	/*background-color: rgba(14,128,68,0.15);*/
+	color: white;
+	padding-left: 4em;
+}
+
+#box2 {
+	/*background-color: rgba(14,128,68,0.15);*/
+	color: white;
+	border-right: 4px solid white;
+	min-height: 100%;
+}
+
+#list {
+	font-size: 20px;
+}
+
+#queueList {
+	padding: 0;
+}
+
+#margin {
+	margin-bottom: 10px;
+}
+
+#margin2 {
+	margin-bottom: 10px;
+	padding-left: 10em;
+}
+
+#loginBox {
+	margin-top: 8em;
+	background-color: rgba(255,255,255,0.2);
+	color:white;
+	text-align: center;
+	height: 25em;
+	margin-bottom: 8em;
+	border-radius: 10px;
+}
+
+
+#signInButton, #createNewUserButton {
+	text-align: center;
+	color: black;
+	text-decoration: none;
+}
+
+#button {
+	text-decoration: none;
+	color:white;
+}
+
+#buttonDiv {
+	background-color: rgba(255,255,255,0.2);
+	border-radius: 5px;
+}
+
+#footer {
+	text-align: center;
+	background-color: rgba(212,140,248,0.15);
+	color: white;
+	position: absolute;
+	margin-left: 0;
+	margin-right: 0;
+	bottom: 0;
+	width: 100%;
+	/* Set the fixed height of the footer here */
+	height: 60px;
+	line-height: 60px;
+	padding: 0;
+}
+
+#yo {
+	color: white;
+}
+
+/* Search.html */
+
+#searchBar {
+	padding-top: 2em;
+	/*background-color: black;*/
+	padding-bottom: 2em;
+	padding-left: 2em;
+}
+
+#searchBar2 {
+	padding-top: 2em;
+	/*background-color: black;*/
+	padding-bottom: 2em;
+	/*padding-left: 2em;*/
+}
+
+#searchTitle {
+	padding-top: 1em;
+	text-align: center;
+
+}
+
+#userIcon {
+	color: white;
+	font-size: 1.3em;
+}
+
+#searchCol {
+	margin:0em;
+	/*padding-left: 4em;*/
+}
+
+#search {
+	/*padding-left: 1em;*/
+	/*border: 2px solid black;*/
+	outline: none;
+	color:black;
+	width: 10em;
+	height: 2.5em;
+}
+
+#search2 {
+	/*padding-left: 1em;*/
+	/*border: 2px solid black;*/
+	outline: none;
+	color:black;
+	width: 10em;
+	height: 2.5em;
+}
+
+#searchResults {
+	height: 100%;
+	/*color:black;*/
+}
+
+#searchResult {
+	padding-top: 1em;
+	padding-bottom: 1em;
+	color:white;
+	/*padding-left: 2em;*/
+	padding-right: 4em;
+	/*background-color: black;*/
+}
+
+#artistResult {
+	display:inline-block;
+	margin-bottom: 2em;
+}
+#searchArtistImage {
+	height:6em;
+	/*border-radius: 80%;*/
+	/*padding-left: 1em;*/
+	/*margin-top: 2em;*/
+}
+
+#searchArtistImage2 {
+	height:6em;
+	width:6em;
+	/*border-radius: 80%;*/
+	/*padding-left: 1em;*/
+	/*margin-top: 2em;*/
+}
+
+#artistBlock {
+	padding-top:1em;
+	/*padding-left: 1em;*/
+	padding-right: 1em;
+	padding-bottom: 1em;
+	display:block;
+	float:left;
+	height: 10em;
+	/*width: 10em;*/
+	color:white;
+	/*text-align: center;*/
+}
+
+/*QueueDIV*/
+#queueDiv {
+	padding: 0em;
+	margin:0em;
+}
+
+/*User Page*/
+/*playlist objects*/
+#UserPlaylistContainer {
+	display: inline-block; 
+	margin:0em; 
+	padding:0em;
+}
+
+#PlayListBox {
+	height: 12em; 
+	width: 10em; 
+	float:left; 
+	margin: 1em;
+}
+
+#removePlaylist {
+	padding-left: 8em; 
+	padding-bottom:1em; 
+	margin: 0em;
+}
+
+#albumColageBox {
+	padding-left: 2em;
+	margin: 0em; 
+	font-size: 1em;
+}
+
+#albumColage {
+	float:left;
+}
+
+#albumColageImg {
+	height:3em; 
+	width:3em;
+}
+
+#UserPLaylistName {
+	padding:0em;
+	padding-left:2em;
+	text-align: left;
+}
+
+

@@ -1,0 +1,139 @@
+<div class="container-fluid" id="body2" ng-controller="searchCtrl">
+	<div class="row">
+		<!--SearchPart-->
+		<div class="col-md-9" id="box2">
+			{{searchPageLoad()}}
+			<ng-include src="'partials/header.html'"></ng-include>
+			<!--SearchResults-->
+			<div class="row">
+				{{changeToResults()}}
+				<!--Visable when loading the page for the first time-->
+				<div class="col-md-12" id="box" ng-if="searchInput == false">
+					<div class="row">
+						<h1>Search for <span class="glyphicon glyphicon-music"></span> or <span class="glyphicon glyphicon-user"></span></h1>
+					</div>
+				</div>
+				<!--All the results are viable when searced-->
+				<div class="col-md-12" id="box" ng-if="searchInput == true">
+					<div class="row">
+						<h1>Showing results for: {{searchWord()}}</h1>
+					</div>
+					<div class="row" id="artistResult">
+						<!--ArtistResults-->
+						<div class="col-md-5">
+							<div class="row">
+								<h1>Artists</h1>
+							</div>
+							<div class="row">
+								<div class="col-md-4" ng-repeat="artist in artistResults()" id="artistBlock">
+									<div class="row">
+										<a ng-href='#!/artistPage/{{artist.id}}' ng-click="getAlbum(artist.id)"><img alt="No image found" id="searchArtistImage2" ng-src="{{artist.images[0].url}}"/></a>
+										<p>{{artist.name}}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--AlbumResults-->
+						<div class="col-md-5">
+							<div class="row">
+								<h1>Albums</h1>
+							</div>
+							<div class="row">
+								<div class="col-md-4" ng-repeat="album in albumResults()" id="artistBlock">
+									<div class="row">
+										<a ng-href='#!/albumPage/{{album.id}}'><img id="searchArtistImage2" ng-src="{{album.images[0].url}}"/></a>
+										<p>{{album.name}}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--UsersResults-->
+						<div class="col-md-2">
+							<div class="row">
+								<h1>Users</h1>
+							</div>
+							<div class="row">
+								<div class="col-md-4" ng-controller="RegController" id="artistBlock">
+									<div class="row" ng-repeat="user in searchedUser">
+										<a id="sortLink" ng-click="userSearch(user.id)" ng-href="#!/friends/{{user.id}}"><h4>{{user.username}}</h4></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--All TrackResults-->
+					<div class="row">
+						<div class="col-md-12">
+							<h1>Tracks</h1>
+						</div>
+					</div>
+					<!--TrackLabels-->
+					<div class="row" id="searchResult">
+						<a href="" id="sortLink" ng-click="sortTracks()">
+							<div class="col-md-4">
+								TITLE <span id="sort0"></span>
+							</div>
+						</a>
+						<a href="" id="sortLink" ng-click="sortArtist()">
+							<div class="col-md-2">
+								ARTIST <span id="sort1"></span> 
+							</div>
+						</a>
+						<a href="" id="sortLink" ng-click="sortAlbum()">
+							<div class="col-md-2">		
+								ALBUM <span id="sort2"></span> 
+							</div>
+						</a>
+						<a href="" id="sortLink" ng-click="popularitySort()">
+							<div class="col-md-2">
+								POPULARITY <span id="sort3"></span>
+							</div>
+						</a>
+						<div class="col-md-1">
+							QUEUE
+						</div>
+						<div class="col-md-1">
+							FAVORITE
+						</div>
+
+						<hr></hr>
+					</div>
+					<!--ALl trackData-->
+					<div class="row" id="searchResult" ng-repeat="track in trackSearch() track by $index">
+						<div class="col-md-4">
+							{{track.name}} <a href="" id="sortLink" ng-click="player(track.preview_url)"><span class="glyphicon glyphicon-volume-up"></span></a> 
+						</div>
+						<div class="col-md-2">
+							<a id="sortLink" ng-href='#!/artistPage/{{track.artists[0].id}}' ng-click="getAlbum(track.artists[0].id)">{{track.artists[0].name}}</a>
+						</div>
+						<div class="col-md-2">
+							<a id="sortLink" ng-href='#!/albumPage/{{track.album.id}}'>
+								{{track.album.name}}
+							</a>
+						</div>
+						<div class="col-md-2">
+							{{track.popularity}}
+						</div>
+						<div class="col-md-1">
+							<a id="qKnapp" href="" ng-click="queueSong(track)">
+								<span class="{{queueSongs(track.id)}}" id="queque{{track.id}}"></span>
+							</a>
+						</div>
+						<div class="col-md-1">
+							<a href="" id="sortLink">
+								<span ng-controller="searchCtrl" ng-click="favoriteSong(track)" id="{{track.id}}" class="{{favoriteSongs(track.id)}}"></span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="row">
+				<div class="col-md-12">
+					<ng-include src="'partials/queueList.html'"></ng-include>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

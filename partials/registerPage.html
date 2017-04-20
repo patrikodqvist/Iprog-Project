@@ -1,0 +1,43 @@
+<div class="row" id="body">
+	<div class="row" id="header">
+		<div class="col-md-4">
+		</div>
+		<div class="col-md-4" id="header-title">
+			<a ng-href="#!/home" id="sortLink"><h1>Queue</h1></a>
+		</div>
+		<div class="col-md-4">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+		</div>
+		<div class="col-md-4" id="loginBox">
+			</br>
+			<h4>Register</h4>
+			</br>
+
+			<form>
+				<div class="input-group input-group-md"> 
+					<span class="input-group-addon"><i id="formIcon" class="glyphicon glyphicon-user"></i></span>
+					<input id="username" type="username" class="form-control" name="username" placeholder="Username" ng-model="user.username" ng-required="true">
+				</div>
+				</br>
+				</br>
+				<div class="input-group input-group-md"> 
+					<span class="input-group-addon"><i id="formIcon" class="glyphicon glyphicon-envelope"></i></span>
+					<input id="email" type="email" class="form-control" name="email" placeholder="Email" ng-model="user.email" ng-required="true">
+				</div>
+				</br>
+				</br>
+				<div class="input-group input-group-md">
+					<span class="input-group-addon"><i id="formIcon" class="glyphicon glyphicon-lock"></i></span>
+					<input id="password" type="password" class="form-control" name="password" placeholder="Password" ng-model="user.password" ng-required="true">
+				</div>
+			</form>
+
+			<button id="transparentButton" class="btn" ng-click="register(user)" style="width: 10em;"><h5>Create New User</h5></button>
+		</div>
+	</div>
+	<div class="row" id="footer">
+	</div>
+</div>

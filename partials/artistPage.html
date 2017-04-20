@@ -1,0 +1,128 @@
+<div class="container-fluid" id="body2" ng-controller="searchCtrl">
+	<div class="row">
+		<div class="col-md-9" id="box2">
+			{{artistPageLoad()}}
+			<ng-include src="'partials/header.html'"></ng-include>
+			<!--Artist info-->
+			<div class="row" id="header2" ng-controller="searchCtrl">
+				<div class="col-md-4" id="margin">
+					<h1><img ng-src="{{artistImg}}" id="searchArtistImage"/></h1>
+				</div>
+				<div class="col-md-8">
+					<div class="row">
+						<h1 id="yo">{{artist}}</h1>
+					</div>
+					<div class="row">
+						<div class="col-md-1">
+							<div class="row">
+								<h5>Genre:</h5>
+							</div>
+						</div>
+						<div class="col-md-2" ng-repeat="genre in genres.slice(0,2)">
+							<div class="row">
+								<h5>{{genre}}</h5>
+							</div>
+						</div>
+					</div>
+					<!--Top Tracks-->
+					<div class="row"> 
+						<h2>Top tracks</h2>
+					</div>
+					<!--Label-->
+					<div class="row" style="padding-bottom: 1em;">
+						<div class="col-md-5">
+							<div class="row">
+								titel
+							</div>
+						</div>
+						<div class="col-md-2">
+							<div class="row">
+								popularity
+							</div>
+						</div>
+						<div class="col-md-1">
+							<div class="row">
+								queue
+							</div>
+						</div>
+						<div class="col-md-1">
+							<div class="row">
+								favorite
+							</div>
+						</div>
+					</div>
+					<!--Tracks-->
+					<div class="row" ng-repeat="song in topTracks.slice(0,5) track by $index">
+						<div class="col-md-5">
+							<div class="row">
+								{{getRowIndex($index)}}{{song.name}}
+								<a id="sortLink" href="" ng-click="player(song.preview_url)">
+									<span class="glyphicon glyphicon-volume-up">
+									</span>
+								</a>
+							</div>
+						</div>
+						<div class="col-md-2">
+							<div class="row">
+								{{song.popularity}}
+							</div>
+						</div>
+						<div class="col-md-1" ng-controller="searchCtrl">
+							<a id="qKnapp" href="" ng-click="queueSong(song)">
+								<span class="{{queueSongs(song.id)}}" id="queque{{song.id}}"></span>
+							</a>
+						</div>
+						<div class="col-md-1" ng-controller="searchCtrl">
+							<a href="" id="sortLink">
+								<span ng-controller="searchCtrl" ng-click="favoriteSong(song)" id="{{song.id}}" class="{{favoriteSongs(song.id)}}"></span>
+							</a>
+						</div>
+					</div>
+					<div class="row" style="height: 3em;">
+					</div>
+				</div>
+			</div>
+			<div class="row" id="padding">
+				<div class="col-md-12"><h1 id="yo">Albums</h1></div>
+			</div>
+			<!--All Artist Albums-->
+			<div class="row" id="padding">
+				<div class="col-md-3" ng-repeat="album in albumResult" style="height:10em;">
+					<div class="row">
+						<div class="col-md-12">
+							<a ng-href='#!/albumPage/{{album.id}}'><img ng-src="{{album.images[0].url}}" id="searchArtistImage"/></a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<p>{{album.name}}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row" id="padding">
+				<div class="col-md-12">
+					<h1 id="yo">Singles</h1>
+				</div>
+			</div>
+			<div class="row" id="padding">
+				<div class="col-md-3" ng-repeat="single in albumResultSingles" style="height:10em;">
+					<div class="row">
+						<div class="col-md-12">
+							<a ng-href='#!/albumPage/{{single.id}}'><img ng-src="{{single.images[0].url}}" id="searchArtistImage"/></a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<p>{{single.name}}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Queue-->
+		<div class="col-md-3">
+			<ng-include src="'partials/queueList.html'"></ng-include>
+		</div>
+	</div>
+</div>

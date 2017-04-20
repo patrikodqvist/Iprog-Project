@@ -1,0 +1,62 @@
+<div class="row" id="header2" ng-controller="searchCtrl">
+	<div class="col-md-4" ng-if="searchPage==false">
+		<div class="row" id="searchBar2">
+			<!--Shown when visiting friendPlaylistPage-->
+			<div class="col-md-2" ng-if="friendPlaylistPage==true">
+				<a ng-href="#!/friends/{{currentUser.id}}">
+					<h3 class="glyphicon glyphicon-circle-arrow-left" id="yo">
+					</h3>
+				</a>
+			</div>
+
+			<!--Shown at albumPage-->
+			<div class="col-md-2" ng-if="albumToArtist==true">
+				<a ng-href="#!/artistPage/{{artistId}}" ng-click="backButton()">
+					<h3 id="yo">Artist</h3>
+				</a>
+			</div>
+
+			<!--Shown everywhere excepts searchPage-->
+			<div class="col-md-2" ng-if="searchPage==false">
+				<a ng-href="#!/search" ng-click="backButton()">
+					<h3 class="glyphicon glyphicon-search" id="yo">
+					</h3>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<!--SearchBox-->
+	<div class="col-md-4" ng-if="searchPage==true" ng-controller="searchCtrl">
+		<div class="row" id="searchBar2">
+			<form ng-submit="searchArtist(input);searchTracks(input);searchAlbums(input);searchUser(input)">
+				<div class="input-group input-group-md">
+					<span class="input-group-addon"><span class="glyphicon glyphicon-search" ng-click="searchArtist(input);searchTracks(input);searchAlbums(input);searchUser(input)" style="color: grey;"></span></span>
+					<input ng-model="input" id="search" placeholder="Search" style="width: 20em;"/>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<!--Titel-->
+	<div class="col-md-4" id="searchTitle">
+		<a ng-href="#!/search" id="sortLink">
+			<h2>KléQueue</h2>
+		</a>
+	</div>
+
+	<!--AnvändarInfon-->
+	<div class="col-md-4">
+		<div class="row" id="searchBar">
+			<div ng-controller="RegController">
+				<div class="col-md-8">
+					<h4><span id="userIcon" class="glyphicon glyphicon-user"></span> Logged in as: <a id="sortLink" ng-click="userSearch(currentUser.id)" ng-href="#!/friends/{{currentUser.id}}">{{ currentUser.username }}</a></h4>
+				</div>
+				<div class="col-md-3">
+					<a href="" ng-click="logout()"><h4 id="userIcon" class="glyphicon glyphicon-log-out"></h4></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

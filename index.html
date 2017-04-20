@@ -1,0 +1,54 @@
+<html ng-app="queueKle">
+	<head>
+		<title>KléQueue</title>
+		<!--Bootstrap stylesheet-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+		<!--Vår egen stylesheet-->
+		<link rel="stylesheet" href="index.css"/>
+
+	    <!-- Bootstrap -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	    
+	    <!-- Angular -->
+	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+	    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.js"></script>
+	    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-resource.js"></script>
+
+	    <!-- Firebase -->
+	    <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+
+	    <!-- AngularFire -->
+	    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+
+	    <!-- JQUERY -->
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+	    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-cookies.js"></script>
+
+    	<!--App.js-->
+		<script src="app.js"></script>
+		<script src="authentication.js"></script>
+		<script src="model.js"></script>
+		<script src="searchCtrl.js"></script>
+    	<script src="RegController.js"></script>
+    	<script src="artistCtrl.js"></script>
+    	<script src="albumCtrl.js"></script>
+    	<script>
+	      // Initialize Firebase
+	      var config = {
+	        apiKey: "AIzaSyAejJdm9HKy1xQ6e6HYd7Ezpnw09_yAEVw",
+	        authDomain: "spotify-project-3bf8a.firebaseapp.com",
+	        databaseURL: "https://spotify-project-3bf8a.firebaseio.com",
+	        storageBucket: "spotify-project-3bf8a.appspot.com",
+	        messagingSenderId: "1014962779481"
+	      };
+	      firebase.initializeApp(config);
+    	</script>
+	</head>
+
+	<body>
+		<!--View-->
+		<div ng-view></div>
+
+	</body>
+</html>

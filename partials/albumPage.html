@@ -1,0 +1,84 @@
+<div class="container-fluid" id="body2">
+	<div class="row" id="yo">
+		<!--All Album info-->
+		<div class="col-md-9" id="box2" ng-controller="searchCtrl">
+			{{albumPageLoad()}}
+			<ng-include src="'partials/header.html'"></ng-include>
+			<!--Album Details-->
+			<div class="row" id="padding">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-2">
+							<div class="row">
+								<h2 id="yo">
+									<img ng-src="{{albumImg}}" id="searchArtistImage"/>
+								</h2>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<h2 id="yo">
+								{{albumName}}
+							</h2>
+							<p>
+								by:
+								<a id="sortLink" ng-href='#!/artistPage/{{artistId}}' ng-click="getAlbum(artistId)">
+									{{artist}}
+								</a>
+							</p>
+							<p>release date: {{release}}</p>
+						</div>
+					</div>
+				</div>	
+			</div>
+			<!--labels-->
+			<div class="row" id="padding2">
+				<div class="col-md-8">
+					TITLE
+				</div>
+				<div class="col-md-2">
+					LENGTH
+				</div>
+				<div class="col-md-1">
+					QUEUE
+				</div>
+				<div class="col-md-1">
+					FAVORITE
+				</div>
+				<hr></hr>
+			</div>
+			<!--Tracks-->
+			<div class="row" id="padding2">
+				<ol id="list">
+					<div class="row" ng-repeat="track in albumTracks" ng-controller="searchCtrl">
+						<div class="col-md-8">
+							<li id="space">
+								{{track.name}}
+								<a id="sortLink" href="" ng-click="player(track.preview_url)">
+									<span class="glyphicon glyphicon-volume-up">
+									</span>
+								</a>
+						</div>
+						<div class="col-md-2">{{getTrackTime(track.duration_ms)}}
+						</div>
+							</li>
+						<div class="col-md-1" ng-controller="searchCtrl">
+							<a id="sortLink" href="" ng-click="queueSong(track)">
+								<span class="{{queueSongs(track.id)}}" id="queque{{track.id}}">
+								</span>
+							</a>
+						</div>
+						<div class="col-md-1" ng-controller="searchCtrl">
+							<a id="sortLink" href="">
+								<span ng-controller="searchCtrl" ng-click="favoriteSong(track)" id="{{track.id}}" class="{{favoriteSongs(track.id)}}"></span>
+							</a>
+						</div>
+					</div>
+				</ol>
+			</div>
+		</div>
+		<!--Queue-->
+		<div class="col-md-3">
+			<ng-include src="'partials/queueList.html'"></ng-include>
+		</div>
+	</div>
+</div>

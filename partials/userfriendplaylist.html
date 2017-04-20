@@ -1,0 +1,135 @@
+<div class="container-fluid" id="body2" style="padding-bottom: 10em;" ng-controller="searchCtrl">
+	<div class="row">
+		<div class="col-md-9" id="box2">
+			{{friendPlaylistLoad()}}
+			<ng-include src="'partials/header.html'"></ng-include>
+			<!--Playlistinfo-->
+			<div class="row" ng-controller="RegController" style="margin:0em;">
+				<div class="col-md-12">
+					<!--Name, Rating-->
+					<div class="row">
+						<div class="col-md-4" ng-controller="RegController">
+							<h1>{{selectedUser.PlaylistName}}</h1>
+						</div>
+						<div class="col-md-3">
+							<h3>Rating: {{currentRating}}</h3>
+						</div>
+						<div class="col-md-2" ng-if="User==false" ng-controller="RegController">
+							<h4 style="padding-top:1em;">
+								<a href="" id="sortLink" ng-click="upvotePlaylist(selUser.id, playlistKey)">
+									<span class="glyphicon glyphicon-thumbs-up">
+										
+									</span>
+								</a>
+								<a href="" id="sortLink" ng-click="downvotePlaylist(selUser.id, playlistKey)"><span class="glyphicon glyphicon-thumbs-down"></span>
+								</a>
+							</h4>
+						</div>
+					</div>
+					<!--Labels-->
+					<div class="row" id="searchResult">
+						<div class="col-md-4">	
+							TITLE 
+						</div>
+						
+						<div class="col-md-2">
+							ARTIST 
+						</div>
+						
+						<div class="col-md-2">		
+							ALBUM 
+						</div>
+				
+						<div class="col-md-2">
+							POPULARITY
+						</div>
+						<div class="col-md-1">
+							QUEUE
+						</div>
+						<div class="col-md-1">
+							FAVORITE
+						</div>
+						<hr></hr>
+					</div>
+					<!--Tracks-->	
+					<div class="row" ng-repeat="track in selectedUser.playlists track by $index" id="searchResult" style="margin:0em;">
+						<div class="col-md-4">
+							<h5>
+								{{track.name}} 
+								<a id="sortLink" href="" ng-click="player(track.preview_url)">
+									<span class="glyphicon glyphicon-volume-up">
+									</span>
+								</a>
+							</h5>
+							
+						</div>
+						<div class="col-md-2" ng-controller="searchCtrl">
+							<a id="sortLink" ng-href='#!/artistPage/{{track.artists[0].id}}' ng-click="getAlbum(track.artists[0].id)">{{track.artists[0].name}}</a>
+						</div>
+						<div class="col-md-2" ng-controller="searchCtrl">
+							<a id="sortLink" ng-href='#!/albumPage/{{track.album.id}}'>
+								{{track.album.name}}
+							</a>
+						</div>
+						<div class="col-md-2">
+							<h5>{{track.popularity}}</h5>
+						</div>
+						<div class="col-md-1">
+							<a id="qKnapp" href="" ng-click="queueSong(track)">
+								<span class="{{queueSongs(track.id)}}" id="queque{{track.id}}"></span>
+							</a>
+						</div>
+						<div class="col-md-1">
+							<a id="sortLink">
+								<span ng-controller="searchCtrl" ng-click="favoriteSong(track)" id="{{track.id}}" class="{{favoriteSongs(track.id)}}"></span>
+							</a>
+						</div>
+					</div>
+					<!--Comments-->
+					<div class="row" style="height: 5em;">
+						<div class="col-md-4">
+						</div>
+						<div class="col-md-4">
+							<h2>Comments</h2>
+						</div>
+					</div>
+					<div class="row" ng-controller="RegController" style="padding-bottom: 2em;">
+						<div class="col-md-2">
+						</div>
+						<div class="col-md-8">
+							<div class="row">
+								<div class="col-md-2">
+								</div>
+								<form ng-submit="addCommentToPlaylist(comment)">
+								<div class="col-md-5">
+									<input class="form-control" style="color:black;" name="comment" placeholder="Type comment" ng-model="comment" ng-required="true">
+								</div>
+								<div class="col-md-3">
+									<button type="button" id="transparentButton" class="btn btn-default btn-md" ng-model="comment" ng-click="addCommentToPlaylist(comment)">Add comment</button>
+								</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="row" ng-repeat="(commentID, yo) in selectedUser.comments" ng-controller="RegController">
+						<div class="col-md-2">
+						</div>
+						<div class="col-md-3">
+							<h5>{{yo.comment}}</h5>
+						</div>
+						<div class="col-md-2">
+							<h5>{{yo.commentBy}}</h5>
+						</div>
+						<div class="col-md-1" ng-if="checkUser(yo.commentBy)">
+							<button id="transparentButton" class="btn btn-xs" ng-click="deleteComment(commentID)"><span class="glyphicon glyphicon-remove"></span></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Queue-->
+		<div class="col-md-3">
+			<ng-include src="'partials/queueList.html'"></ng-include>
+		</div>
+	</div>
+</div>
