@@ -1,5 +1,5 @@
-# spotifyprojekt
-Interaction programming - Project
+# KléQueue - spotifyprojekt
+DH2642 Interaction Programming and the Dynamic Web - Project Work
 
 Dui Ardal, Gustav Frisk Arfvidsson, Patrik Odqvist and Sebastian Holmqvist.
 
